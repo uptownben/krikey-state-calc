@@ -1,0 +1,31 @@
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: state-calc-deployment
+spec:
+  selector:
+    matchLabels:
+      app: state-calc
+      tier: backend
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        app: state-calc
+        tier: backend
+    spec:
+      containers:
+        - name: state-calc
+          image: state-calc-service:latest
+          ports:
+            - name: http
+              containerPort: 3000
+          resources:
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+            requests:
+                memory: "128Mi"
+                cpu: "250m"

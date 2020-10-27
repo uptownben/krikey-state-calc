@@ -1,5 +1,3 @@
-# krikey-state-calc
-
 # API Scaling
 
 1. To Scale this service I use load balancing (Kuberenetes or other)
@@ -32,4 +30,3 @@ Build service docker image:
 2. I would configure Liveness and Readiness probes as HTTP probes and implement liveness and readiness response endpoints in the service.
 3. For autoscaling I would research using Kubernetes Horizontal Pod Autoscaler, but currently don't have much detailed experience with it.
 4. Cluster nodes would need enough CPU and memory to handle the given estimated work load. In this case a minimal node configuration 4GB RAM / 2 CPU cores, should handle the given workload in a 3 node cluster. Three nodes, 4GB RAM/2 CPU per node. This configuration would also provide node fault tolerance.
-
